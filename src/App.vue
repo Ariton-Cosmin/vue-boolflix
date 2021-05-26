@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Home :v-for="(disc, index) in discs" :key="disc" :disc="disc" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from "axios";
+import Home from "./components/Home.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Home,
+  },
+
+  data() {
+    return {
+      axios,
+      discs: [],
+    };
+  },
+
+  created() {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/search/movie?api_key=514edf9961ca2d85a642a68d752ce4a9&query=ritorno al futuro&language=it-IT"
+      )
+      .then((response) => {
+        this.discs = response.data.response;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+};
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

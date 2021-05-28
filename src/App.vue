@@ -1,40 +1,46 @@
 <template>
-  <div id="app">
-    <Home :v-for="(disc, index) in discs" :key="disc" :disc="disc" />
-  </div>
+  <div id="app">App</div>
 </template>
 
 <script>
 import axios from "axios";
-import Home from "./components/Home.vue";
 
 export default {
   name: "App",
-  components: {
-    Home,
-  },
+  components: {},
 
   data() {
     return {
-      axios,
-      discs: [],
+      apiUrl: "https://api.themoviedb.org/3/search/movie",
+      apiKey: "514edf9961ca2d85a642a68d752ce4a9",
     };
   },
 
+  methods: {
+    getAPI(query) {
+      axios
+        .get(this.apiUrl, {
+          params: {
+            api_Key: this.apiKey,
+            query: query,
+            language: "it-IT",
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+
   created() {
-    axios
-      .get(
-        "https://api.themoviedb.org/3/search/movie?api_key=514edf9961ca2d85a642a68d752ce4a9&query=ritorno al futuro&language=it-IT"
-      )
-      .then((response) => {
-        this.discs = response.data.response;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.getAPI("star wars");
   },
 };
 </script>
 
 <style lang="scss">
+@import "./assets/style/general.scss";
 </style>

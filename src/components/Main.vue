@@ -22,8 +22,8 @@ export default {
   data() {
     return {
       titles: {
-        movie: "film trovati",
-        tv: "serie tv trovati",
+        movie: "Film trovati",
+        tv: "Serie tv trovati",
       },
     };
   },
@@ -32,6 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 main {
+  padding-top: 70px;
   width: 85%;
   margin: auto;
 

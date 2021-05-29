@@ -7,7 +7,7 @@
         <input v-model.trim="textSearch" type="text" placeholder="Cerca..." />
       </div>
 
-      <div>
+      <div class="button">
         <button
           @click="$emit('startSearch', { text: textSearch, type: 'movie' })"
         >
@@ -39,6 +39,8 @@ export default {
 
 <style lang="scss" scoped>
 header {
+  position: fixed;
+  width: 100%;
   height: 70px;
   background-color: black;
 }
@@ -49,12 +51,13 @@ header {
   line-height: 70px;
 
   h1 {
-    margin-right: 30rem;
+    margin-right: 10rem;
     color: red;
   }
 
   .input {
     width: 20%;
+    margin-left: 10rem;
 
     input {
       width: 100%;
@@ -66,18 +69,22 @@ header {
     }
   }
 
-  button {
-    width: 60px;
-    height: 40px;
-    margin-left: 1rem;
-    border: none;
-    text-transform: uppercase;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    background-color: blue;
-    &:hover {
-      background-color: rgb(2, 82, 255);
+  .button {
+    width: 25rem;
+
+    button {
+      width: 60px;
+      height: 40px;
+      margin-left: 1rem;
+      border: none;
+      text-transform: uppercase;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      background-color: blue;
+      &:hover {
+        background-color: rgb(2, 82, 255);
+      }
     }
   }
 }

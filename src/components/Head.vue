@@ -8,6 +8,7 @@
       </div>
 
       <div class="button">
+        <!-- invio un'oggetto all'$emit con due parametri, il testo da cercare e il tipo di ricerca da fare -->
         <button
           @click="$emit('startSearch', { text: textSearch, type: 'movie' })"
         >
@@ -42,6 +43,7 @@ header {
   position: fixed;
   width: 100%;
   height: 70px;
+  z-index: 999;
   background-color: black;
 }
 

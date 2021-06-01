@@ -1,6 +1,9 @@
 <template>
   <main class="container">
+    <!-- mostro a video il titolo relativo al tipe -->
     <h2>{{ titles[type] }}</h2>
+
+    <!-- ciclo la lista dei risultati in Card -->
     <Card v-for="card in list" :key="card.id" :card="card" />
   </main>
 </template>

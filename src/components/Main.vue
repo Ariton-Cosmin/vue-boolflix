@@ -1,10 +1,12 @@
 <template>
-  <main class="container">
+  <main>
     <!-- mostro a video il titolo relativo al tipe -->
     <h2>{{ titles[type] }}</h2>
 
-    <!-- ciclo la lista dei risultati in Card -->
-    <Card v-for="card in list" :key="card.id" :card="card" />
+    <div class="flex">
+      <!-- ciclo la lista dei risultati in Card -->
+      <Card v-for="card in list" :key="card.id" :card="card" />
+    </div>
   </main>
 </template>
 
@@ -18,7 +20,9 @@ export default {
   },
 
   props: {
+    // qua viene memmorizato il tipo di risultato
     type: String,
+    // qua viene memmorizato l'elenco
     list: Array,
   },
 
@@ -36,11 +40,17 @@ export default {
 <style lang="scss" scoped>
 main {
   padding-top: 70px;
-  width: 85%;
+  width: 87%;
   margin: auto;
 
   h2 {
     color: red;
+  }
+
+  .flex {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
   }
 }
 </style>

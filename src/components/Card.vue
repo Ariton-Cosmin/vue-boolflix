@@ -81,9 +81,9 @@ export default {
 
 <style lang="scss" scoped>
 div {
-  width: 80%;
   margin-top: 1.5rem;
-  margin-bottom: 4.5rem;
+  margin-bottom: 2rem;
+  margin-right: 1.5rem;
 
   .flip-card {
     background-color: transparent;
@@ -144,7 +144,7 @@ div {
 
   .stars {
     position: relative;
-    margin-bottom: -60px;
+    margin-bottom: -30px;
 
     .empty,
     .solid {

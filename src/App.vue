@@ -4,7 +4,7 @@
     <Head @startSearch="startSearch" />
 
     <!-- ci sono due componenti Main movie e tv e vengono visualizzati solo se sono presenti nell'aray -->
-    <!-- poi li passo due props movie e tv e l'elenco dei risultati -->
+    <!-- poi li passo due props movie o tv e l'elenco dei risultati -->
     <Main v-if="results.movie.length > 0" type="movie" :list="results.movie" />
     <Main v-if="results.tv.length > 0" type="tv" :list="results.tv" />
   </div>
@@ -39,7 +39,7 @@ export default {
     startSearch(obj) {
       // reset delle ricerce passate
       this.resetResults();
-      // se cerca tutto fa due chiamate
+      // se cerca tutto fa due chiamate, le chiamate sono...
       if (obj.type === "all") {
         this.getAPI(obj.text, "movie");
         this.getAPI(obj.text, "tv");
@@ -55,7 +55,7 @@ export default {
 
     // funzione per la chiamata axios
     getAPI(query, type) {
-      // di conseguenza effettua una chiamata solo se c'è un testo da cercare
+      // e di conseguenza effettua una chiamata solo se c'è un testo da cercare
       if (query !== "") {
         axios
           .get(this.apiUrl + type, {
